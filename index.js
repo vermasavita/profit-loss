@@ -15,7 +15,7 @@ function submitHandler() {
 }
 
 function calculateProfitAndLoss(initial, quantity, current) {
-    if (current > 0 && initial > 0) {
+    if (current > 0 && initial > 0 && quantity >0) {
         if (current > initial) {
             var profit = (current - initial) * quantity;
             var profitPercentage = (profit / initial) * 100;
