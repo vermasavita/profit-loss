@@ -1,28 +1,26 @@
-var initialPrice = document.querySelector("#initial-price");
-var quantityOfstock = document.querySelector("#quantity-stock");
-var currentPrice = document.querySelector("#current-price");
-var tellMeBtn = document.querySelector("#tellme-btn");
-var outputMessage = document.querySelector("#output-message");
+let initialPrice = document.querySelector("#initial-price");
+let quantityOfstock = document.querySelector("#quantity-stock");
+let currentPrice = document.querySelector("#current-price");
+let tellMeBtn = document.querySelector("#tellme-btn");
+let outputMessage = document.querySelector("#output-message");
 
-tellMeBtn.addEventListener('click', submitHandler);
-
-function submitHandler() {
-    var ip = Number(initialPrice.value);
-    var qty = Number(quantityOfstock.value);
-    var curr = Number(currentPrice.value);
+const submitHandler = () => {
+    let ip = Number(initialPrice.value);
+    let qty = Number(quantityOfstock.value);
+    let curr = Number(currentPrice.value);
     calculateProfitAndLoss(ip, qty, curr);
 
 }
 
-function calculateProfitAndLoss(initial, quantity, current) {
+const calculateProfitAndLoss = (initial, quantity, current)=>{
     if (current > 0 && initial > 0 && quantity >0) {
         if (current > initial) {
-            var profit = (current - initial) * quantity;
-            var profitPercentage = (profit / initial) * 100;
+            let profit = (current - initial) * quantity;
+            let profitPercentage = (profit / initial) * 100;
             showMessage(`The profit is ${profit} and the ${profitPercentage}%`);
         } else if (initial > current) {
-            var loss = (initial - current) * quantity;
-            var lossPercentage = (loss / initial) * 100;
+            let loss = (initial - current) * quantity;
+            let lossPercentage = (loss / initial) * 100;
             showMessage(`The loss is ${loss} and the ${lossPercentage}%`);
 
         } else {
@@ -35,6 +33,8 @@ function calculateProfitAndLoss(initial, quantity, current) {
 
 }
 
-function showMessage(message) {
+const showMessage = (message) => {
     outputMessage.innerHTML = message;
 }
+
+tellMeBtn.addEventListener('click', submitHandler);
